@@ -114,6 +114,10 @@ require('lazy').setup({
     end,
   },
 
+  {
+    'rose-pine/neovim',
+  },
+
   { -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
     -- See `:help lualine.txt`
