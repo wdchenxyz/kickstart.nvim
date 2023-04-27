@@ -79,6 +79,9 @@ require('lazy').setup({
     -- nvim jdtls
     { 'mfussenegger/nvim-jdtls' },
 
+    -- vim be good practice game
+    { 'ThePrimeagen/vim-be-good' },
+
 
     -- NOTE: This is where your plugins related to LSP can be installed.
     --  The configuration is done below. Search for lspconfig to find it below.
@@ -106,7 +109,7 @@ require('lazy').setup({
     },
 
     -- Useful plugin to show you pending keybinds.
-    { 'folke/which-key.nvim',   opts = {} },
+    { 'folke/which-key.nvim',    opts = {} },
     { -- Adds git releated signs to the gutter, as well as utilities for managing changes
         'lewis6991/gitsigns.nvim',
     },
@@ -265,6 +268,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
     defaults = {
+        path_display = { 'truncate' },
         mappings = {
             i = {
                 ['<C-u>'] = false,

@@ -39,8 +39,7 @@ vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.config/nvim/init.lua<CR>");
 vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 
 -- NeoTree
-vim.keymap.set("n", "<leader>nt", "<CMD>Neotree toggle<CR>")
-vim.keymap.set("n", "<leader>o", "<CMD>Neotree focus<CR>")
+vim.keymap.set("n", "<leader>o", "<CMD>Neotree toggle<CR>")
 
 -- Buffer
 vim.keymap.set("n", "<TAB>", "<CMD>bnext<CR>")
