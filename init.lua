@@ -366,7 +366,7 @@ local servers = {
     -- gopls = {},
     -- pyright = {},
     -- rust_analyzer = {},
-    -- tsserver = {},
+    tsserver = {},
     -- jdtls = {},
 
     lua_ls = {
@@ -387,6 +387,8 @@ mason_lspconfig.setup {
     ensure_installed = vim.tbl_keys(servers),
 }
 
+local noop = function() end
+
 mason_lspconfig.setup_handlers {
     function(server_name)
         require('lspconfig')[server_name].setup {
@@ -394,6 +396,7 @@ mason_lspconfig.setup_handlers {
             settings = servers[server_name],
         }
     end,
+    ['jdtls'] = noop,
 }
 
 -- nvim-cmp setup
