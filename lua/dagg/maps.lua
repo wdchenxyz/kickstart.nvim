@@ -43,13 +43,13 @@ vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+-- vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.config/nvim/init.lua<CR>");
 vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 
--- NeoTree
-vim.keymap.set("n", "<leader>o", "<CMD>Neotree toggle<CR>")
+-- NvimTree
+vim.keymap.set("n", "<leader>o", "<CMD>NvimTreeToggle<CR>")
 
 -- Buffer
 vim.keymap.set("n", "<TAB>", "<CMD>bnext<CR>")
@@ -60,3 +60,6 @@ vim.keymap.set("n", "<C-Left>", "<C-w><")
 vim.keymap.set("n", "<C-Right>", "<C-w>>")
 vim.keymap.set("n", "<C-Up>", "<C-w>+")
 vim.keymap.set("n", "<C-Down>", "<C-w>-")
+
+-- mark before search
+vim.keymap.set("n", "/", "ms/")
