@@ -82,6 +82,18 @@ require('lazy').setup({
     -- vim be good practice game
     { 'ThePrimeagen/vim-be-good' },
 
+    -- vim trouble
+    {
+        "folke/trouble.nvim",
+        config = function()
+            require("trouble").setup {
+                -- icons = false,
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            }
+        end
+    },
 
     -- NOTE: This is where your plugins related to LSP can be installed.
     --  The configuration is done below. Search for lspconfig to find it below.
@@ -144,12 +156,6 @@ require('lazy').setup({
     {
         -- Add indentation guides even on blank lines
         'lukas-reineke/indent-blankline.nvim',
-        -- Enable `lukas-reineke/indent-blankline.nvim`
-        -- See `:help indent_blankline.txt`
-        opts = {
-            char = '┊',
-            show_trailing_blankline_indent = false,
-        },
     },
 
     -- "gc" to comment visual regions/lines
@@ -180,15 +186,33 @@ require('lazy').setup({
         build = ":TSUpdate",
     },
 
+    { 'nvim-treesitter/nvim-treesitter-context' },
+
     { 'ThePrimeagen/harpoon' },
 
     { 'folke/zen-mode.nvim' },
     { 'github/copilot.vim' },
+    {
+        'stevearc/aerial.nvim',
+        opts = {},
+        -- Optional dependencies
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+            "nvim-tree/nvim-web-devicons"
+        },
+    },
+
+    -- change, delete, add surrounding pairs
+    { 'tpope/vim-surround' },
+
+    -- pairs completion
+    { 'echasnovski/mini.pairs', version = false },
+
     -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
     --       These are some example plugins that I've included in the kickstart repository.
     --       Uncomment any of the lines below to enable them.
     require 'kickstart.plugins.autoformat',
-    require 'kickstart.plugins.debug',
+    -- require 'kickstart.plugins.debug',
 
     -- NOTE: The import below automatically adds your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
     --    You can use this folder to prevent any conflicts with this init.lua if you're interested in keeping
@@ -213,31 +237,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     pattern = '*',
 })
 
--- [[ Configure Telescope ]]
--- See `:help telescope` and `:help telescope.setup()`
-require('telescope').setup {
-    defaults = {
-        path_display = { 'truncate' },
-        mappings = {
-            i = {
-                ['<C-u>'] = false,
-                ['<C-d>'] = false,
-            },
-        },
-    },
-}
-
--- Enable telescope fzf native, if installed
-pcall(require('telescope').load_extension, 'fzf')
-
--- See `:help telescope.builtin`
-vim.keymap.set('n', '<leader>/', function()
-    -- You can pass additional configuration to telescope to change theme, layout, etc.
-    require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-        winblend = 10,
-        previewer = false,
-    })
-end, { desc = '[/] Fuzzily search in current buffer' })
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
@@ -420,6 +419,7 @@ cmp.setup {
     sources = {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
+
     },
 }
 
