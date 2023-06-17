@@ -45,6 +45,7 @@ local custom_options = {
         },
         lsp_references = {
             fname_width = 60,
+            path_display = { 'absolute' },
         },
     }
 }

@@ -20,6 +20,13 @@ vim.g.loaded_netrwPlugin = 1
 return {
   "nvim-tree/nvim-tree.lua",
   config = function()
-    require('nvim-tree').setup {}
+    require('nvim-tree').setup {
+      diagnostics = {
+        enable = true,
+      },
+      modified = {
+        enable = true,
+      }
+    }
   end,
 }
