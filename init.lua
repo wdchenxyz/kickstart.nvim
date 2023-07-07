@@ -115,6 +115,11 @@ require('lazy').setup({
     },
 
     {
+        'mfussenegger/nvim-dap',
+        'rcarriga/cmp-dap',
+    },
+
+    {
         -- Autocompletion
         'hrsh7th/nvim-cmp',
         dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
@@ -423,7 +428,50 @@ cmp.setup {
     },
 }
 
+-- cmp.setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
+--     sources = {
+--         { name = "dap" },
+--     },
+-- })
+
 vim.g.copilot_assume_mapped = true
+vim.g.copilot_filetypes = {
+    ['dap-repl'] = false,
+    ['dap-watches'] = false
+}
+
+
+-- run debug
+-- local function get_test_runner(test_name, debug)
+--     if debug then
+--         return 'mvn test -Dmaven.surefire.debug -Dtest="' .. test_name .. '"'
+--     end
+--     return 'mvn test -Dtest="' .. test_name .. '"'
+-- end
+--
+-- local function run_java_test_method(debug)
+--     local utils = require 'dagg.utils'
+--     local method_name = utils.get_current_full_method_name("\\#")
+--     vim.cmd('term ' .. get_test_runner(method_name, debug))
+-- end
+--
+-- local function run_java_test_class(debug)
+--     local utils = require 'dagg.utils'
+--     local class_name = utils.get_current_full_class_name()
+--     vim.cmd('term ' .. get_test_runner(class_name, debug))
+-- end
+--
+-- vim.keymap.set("n", "<leader>tm", function() run_java_test_method() end)
+-- vim.keymap.set("n", "<leader>TM", function() run_java_test_method(true) end)
+-- vim.keymap.set("n", "<leader>tc", function() run_java_test_class() end)
+-- vim.keymap.set("n", "<leader>TC", function() run_java_test_class(true) end)
+--
+-- -- setup debug
+-- vim.keymap.set('n', '<leader>b', ':lua require"dap".toggle_breakpoint()<CR>')
+-- vim.keymap.set('n', '<leader>B', ':lua require"dap".set_breakpoint(vim.fn.input("Condition: "))<CR>')
+-- vim.keymap.set('n', '<leader>bl', ':lua require"dap".set_breakpoint(nil, nil, vim.fn.input("Log: "))<CR>')
+-- vim.keymap.set('n', '<leader>dr', ':lua require"dap".repl.open()<CR>')
+
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=4 sts=4 sw=4 et

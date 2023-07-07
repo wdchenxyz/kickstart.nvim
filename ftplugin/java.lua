@@ -15,8 +15,9 @@ local path_to_lsp_server = jdtls_path .. "/config_mac"
 local path_to_plugins = jdtls_path .. "/plugins/"
 local path_to_jar = path_to_plugins .. "org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar"
 local lombok_path = path_to_plugins .. "lombok.jar"
+local path_to_java_dap = "/Users/wchen14/.local/share/java-debug-0.46.0/com.microsoft.java.debug.plugin/target"
 
-local root_markers = { "pom.xml", "gradlew" , ".git", "build.gradle", "mvnw"}
+local root_markers = { "pom.xml", "gradlew", ".git", "build.gradle", "mvnw" }
 local root_dir = require("jdtls.setup").find_root(root_markers)
 if root_dir == "" then
     return
@@ -111,7 +112,9 @@ local config = {
         allow_incremental_sync = true,
     },
     init_options = {
-        bundles = {},
+        bundles = {
+            vim.fn.glob(path_to_java_dap .. "com.microsoft.java.debug.plugin-*.jar", 1)
+        },
     },
 }
 
@@ -158,6 +161,8 @@ config['on_attach'] = function(client, bufnr)
             border = "rounded"
         }
     }, bufnr)
+    require('jdtls').setup_dap({ hotcodereplace = 'auto' })
+    nmap('<leader>dj', require('jdtls').test_class, '[D]ebug [J]ava')
 end
 
 -- This starts a new client & server,
