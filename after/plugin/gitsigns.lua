@@ -26,7 +26,7 @@ require('gitsigns').setup {
       if vim.wo.diff then return '[c' end
       vim.schedule(function() gs.prev_hunk() end)
       return '<Ignore>'
-    end, { expr = true })
+    end, { expr = true, desc = 'previous hunk' })
 
     -- Actions
     map({ 'n', 'v' }, '<leader>hs', ':Gitsigns stage_hunk<CR>', { desc = '[H]unk [S]tage' })

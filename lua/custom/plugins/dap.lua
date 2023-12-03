@@ -52,9 +52,9 @@ return {
       local dap = require 'dap'
       -- Basic debugging keymaps, feel free to change to your liking!
       vim.keymap.set('n', '<leader>l', dap.continue)
-      vim.keymap.set('n', '<leader>j', dap.step_into)
+      vim.keymap.set('n', '<leader>zj', dap.step_into)
       vim.keymap.set('n', '<leader>n', dap.step_over)
-      vim.keymap.set('n', '<leader>k', dap.step_out)
+      vim.keymap.set('n', '<leader>zk', dap.step_out)
       vim.keymap.set('n', '<leader>b', dap.toggle_breakpoint)
       vim.keymap.set('n', '<leader>B', function()
         dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')

@@ -41,11 +41,11 @@ local custom_options = {
     pickers = {
         find_files = {
             no_ignore = false,
-            path_display = { 'absolute' },
+            path_display = { 'smart' },
         },
         lsp_references = {
             fname_width = 60,
-            path_display = { 'absolute' },
+            path_display = { 'smart' },
         },
     }
 }
