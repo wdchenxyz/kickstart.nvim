@@ -160,7 +160,7 @@ require('lazy').setup({
 
     {
         -- Add indentation guides even on blank lines
-        'lukas-reineke/indent-blankline.nvim',
+        { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }
     },
 
     -- "gc" to comment visual regions/lines
@@ -374,6 +374,16 @@ local servers = {
     -- rust_analyzer = {},
     tsserver = {},
     -- jdtls = {},
+    pylsp = {
+        pylsp = {
+            plugins = {
+                mccabe = { enabled = false },
+                pycodestyle = {
+                    maxLineLength = 120
+                }
+            }
+        }
+    },
 
     lua_ls = {
         Lua = {
