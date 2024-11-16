@@ -1,18 +1,12 @@
 return {
     'ThePrimeagen/harpoon',
-
-    config = function()
-
-        local mark = require("harpoon.mark")
-        local ui = require("harpoon.ui")
-
-        vim.keymap.set("n", "<leader>a", mark.add_file)
-        vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu)
-
-        vim.keymap.set("n", "<C-h>", function() ui.nav_file(1) end)
-        vim.keymap.set("n", "<C-t>", function() ui.nav_file(2) end)
-        vim.keymap.set("n", "<C-n>", function() ui.nav_file(3) end)
-        vim.keymap.set("n", "<C-s>", function() ui.nav_file(4) end)
-    end
-
+    keys = {
+        { "<leader>a", function() require("harpoon.mark").add_file() end,        desc = "Add file to Harpoon" },
+        { "<C-e>",     function() require("harpoon.ui").toggle_quick_menu() end, desc = "Toggle Harpoon quick menu" },
+        { "<C-h>",     function() require("harpoon.ui").nav_file(1) end,         desc = "Navigate to Harpoon file 1" },
+        { "<C-t>",     function() require("harpoon.ui").nav_file(2) end,         desc = "Navigate to Harpoon file 2" },
+        { "<C-n>",     function() require("harpoon.ui").nav_file(3) end,         desc = "Navigate to Harpoon file 3" },
+        { "<C-s>",     function() require("harpoon.ui").nav_file(4) end,         desc = "Navigate to Harpoon file 4" },
+    },
+    opts = {}
 }

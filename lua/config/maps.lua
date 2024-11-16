@@ -51,8 +51,6 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.config/nvim/init.lua<CR>");
 vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 
--- NvimTree
-vim.keymap.set("n", "<leader>o", "<CMD>NvimTreeToggle<CR>")
 
 -- Buffer
 vim.keymap.set("n", "<TAB>", "<CMD>bnext<CR>")
