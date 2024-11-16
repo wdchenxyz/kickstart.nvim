@@ -1,4 +1,13 @@
-require('aerial').setup({
+vim.keymap.set('n', '<leader>5', '<cmd>AerialToggle!<CR>')
+return {
+  'stevearc/aerial.nvim',
+
+  dependencies = {
+     "nvim-treesitter/nvim-treesitter",
+     "nvim-tree/nvim-web-devicons"
+  },
+
+  opts = {
     layout = {
         default_direction = "prefer_left",
     },
@@ -8,6 +17,5 @@ require('aerial').setup({
         vim.keymap.set('n', '{', '<cmd>AerialPrev<CR>', { buffer = bufnr })
         vim.keymap.set('n', '}', '<cmd>AerialNext<CR>', { buffer = bufnr })
     end
-})
--- You probably also want to set a keymap to toggle aerial
-vim.keymap.set('n', '<leader>5', '<cmd>AerialToggle!<CR>')
+    },
+}

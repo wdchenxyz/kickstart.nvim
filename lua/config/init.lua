@@ -24,15 +24,14 @@ local nmap = function(keys, func, desc)
         desc = 'LSP: ' .. desc
     end
 
-    vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
+    vim.keymap.set('n', keys, func, { buffer = Bufnr, desc = desc })
 end
 
 vim.api.nvim_create_autocmd(
     'LspAttach', {
         group = wdchen_group,
         callback = function(e)
-            local opts = { buffer = e.buf }
-            bufnr = e.buf
+            Bufnr = e.buf
 
             nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
             nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
@@ -57,7 +56,7 @@ vim.api.nvim_create_autocmd(
             end, '[W]orkspace [L]ist Folders')
 
             -- Create a command `:Format` local to the LSP buffer
-            vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
+            vim.api.nvim_buf_create_user_command(Bufnr, 'Format', function(_)
                 vim.lsp.buf.format()
             end, { desc = 'Format current buffer with LSP' })
         end

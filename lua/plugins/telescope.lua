@@ -24,7 +24,7 @@ local custom_options = {
 
 return {
 
-     { 
+     {
         -- Fuzzy Finder (files, lsp, etc)
         'nvim-telescope/telescope.nvim',
 
@@ -52,7 +52,7 @@ return {
             -- See `:help telescope.builtin`
             vim.keymap.set('n', '<leader>/', function()
                 -- You can pass additional configuration to telescope to change theme, layout, etc.
-                buildtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+                builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
                     winblend = 10,
                     previewer = false,
                 })
