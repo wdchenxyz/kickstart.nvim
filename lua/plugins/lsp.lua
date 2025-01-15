@@ -48,57 +48,8 @@ return {
                         }
                     }
                 end,
-                ['jdtls'] = function () end
+                ['jdtls'] = function () end,
             }
         })
     end
 }
-
--- local servers = {
---     -- clangd = {},
---     -- gopls = {},
---     -- pyright = {},
---     -- rust_analyzer = {},
---     tsserver = {},
---     -- jdtls = {},
---     pylsp = {
---         pylsp = {
---             plugins = {
---                 mccabe = { enabled = false },
---                 pycodestyle = {
---                     maxLineLength = 120
---                 }
---             }
---         }
---     },
---
---     lua_ls = {
---         Lua = {
---             workspace = { checkThirdParty = false },
---             telemetry = { enable = false },
---         },
---     },
--- }
---
--- -- Setup neovim lua configuration
--- require('neodev').setup()
---
--- -- Ensure the servers above are installed
--- local mason_lspconfig = require 'mason-lspconfig'
---
--- mason_lspconfig.setup {
---     ensure_installed = vim.tbl_keys(servers),
--- }
---
--- local noop = function() end
---
--- mason_lspconfig.setup_handlers {
---     function(server_name)
---         require('lspconfig')[server_name].setup {
---             on_attach = on_attach,
---             settings = servers[server_name],
---         }
---     end,
---     ['jdtls'] = noop,
--- }
---
