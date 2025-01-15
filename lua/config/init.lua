@@ -3,6 +3,8 @@ require('config.maps')
 require('config.lazy')
 require('config.colors')
 
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
