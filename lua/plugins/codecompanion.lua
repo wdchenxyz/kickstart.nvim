@@ -8,8 +8,8 @@ return {
     config = true,
     opts = {
         strategies = {
-            chat = { adapter = 'ollama' },
-            inline = { adapter = 'ollama' }
+            chat = { adapter = 'openai' },
+            inline = { adapter = 'openai' }
         },
         adapters = {
             ollama = function()
@@ -29,6 +29,11 @@ return {
                     env = {
                         api_key = "cmd:security find-generic-password -a genie -s OpenAI_genie -w"
                     },
+                    schema = {
+                        model = {
+                            default = "gpt-4o-mini"
+                        }
+                    }
                 })
             end,
         },
