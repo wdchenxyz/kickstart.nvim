@@ -7,6 +7,13 @@ return {
     },
     config = true,
     opts = {
+        display = {
+            chat = {
+                window = {
+                    position = "right"
+                }
+            }
+        },
         strategies = {
             chat = { adapter = 'openai' },
             inline = { adapter = 'openai' }
@@ -27,12 +34,19 @@ return {
             openai = function()
                 return require("codecompanion.adapters").extend("openai", {
                     env = {
-                        api_key = "cmd:security find-generic-password -a genie -s OpenAI_genie -w"
+                        api_key = "cmd:security find-generic-password -a codecompanion -s OpenAI_codecompanion -w"
                     },
                     schema = {
                         model = {
                             default = "gpt-4o-mini"
                         }
+                    }
+                })
+            end,
+            anthropic = function()
+                return require("codecompanion.adapters").extend("anthropic", {
+                    env = {
+                        api_key = "cmd:security find-generic-password -a codecompanion -s Claude_codecompanion -w"
                     }
                 })
             end,

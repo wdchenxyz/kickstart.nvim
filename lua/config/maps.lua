@@ -61,6 +61,7 @@ vim.keymap.set("n", "<C-Left>", "<C-w><")
 vim.keymap.set("n", "<C-Right>", "<C-w>>")
 vim.keymap.set("n", "<C-Up>", "<C-w>+")
 vim.keymap.set("n", "<C-Down>", "<C-w>-")
+vim.keymap.set('n', '<leader>vr', ':vertical resize<CR>', { noremap = true })
 
 -- mark before search
 vim.keymap.set("n", "/", "ms/")
