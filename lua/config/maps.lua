@@ -71,3 +71,9 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous dia
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
 vim.keymap.set('n', '<leader><Tab>', vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
+
+vim.keymap.set('n', '<leader>t', function()
+  vim.cmd('split')            -- Open horizontal split
+  vim.cmd('resize 20')        -- Set height to 20 lines
+  vim.cmd('enew')             -- Open new empty buffer
+end, { desc = 'Open temp split for typing' })
