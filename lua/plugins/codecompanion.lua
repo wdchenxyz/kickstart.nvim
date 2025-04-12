@@ -5,6 +5,7 @@ return {
         { "MeanderingProgrammer/render-markdown.nvim", ft = { "markdown", "codecompanion" } },
         "nvim-treesitter/nvim-treesitter",
     },
+    enabled = true,
     config = true,
     opts = {
         display = {
@@ -15,14 +16,21 @@ return {
             }
         },
         strategies = {
-            chat = { adapter = 'openai' },
+            chat = {
+                adapter = 'openai',
+                keymaps = {
+                    close = {
+                        modes = { n = "<C-9>", i = "<C-9>"},
+                    }
+                }
+            },
             inline = { adapter = 'openai' }
         },
         adapters = {
             ollama = function()
                 return require("codecompanion.adapters").extend("ollama", {
                     env = {
-                        api_key = "hello"
+                        api_key = "i have to fill it"
                     },
                     schema = {
                         model = {
