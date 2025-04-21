@@ -65,6 +65,10 @@ vim.keymap.set('n', '<leader>vr', ':vertical resize<CR>', { noremap = true })
 
 -- mark before search
 vim.keymap.set("n", "/", "ms/")
+vim.keymap.set("n", "'s", function()
+    vim.cmd("normal! 's")
+    vim.cmd.nohlsearch()
+end)
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
