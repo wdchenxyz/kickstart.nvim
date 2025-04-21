@@ -2,7 +2,10 @@ return {
     {
         'saghen/blink.cmp',
         enabled = true,
-        dependencies = 'rafamadriz/friendly-snippets',
+        dependencies = {
+            'Kaiser-Yang/blink-cmp-avante',
+            'rafamadriz/friendly-snippets'
+        },
 
         version = '*',
 
@@ -16,9 +19,18 @@ return {
 
             signature = { enabled = true },
             sources = {
-                default = { "lsp", "path", "buffer", "codecompanion" },
+                default = { 'lsp', 'path', 'buffer', 'avante', 'codecompanion' },
                 -- cmdline = {}, -- Disable sources for command-line mode
+                providers = {
+                    avante = {
+                        module = 'blink-cmp-avante',
+                        name = 'Avante',
+                        opts = {
+                            -- options for blink-cmp-avante
+                        }
+                    }
+                },
             },
         },
-    },
+    }
 }
