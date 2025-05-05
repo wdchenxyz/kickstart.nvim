@@ -69,6 +69,13 @@ return {
           }
         })
       end,
+      gemini = function()
+        return require("codecompanion.adapters").extend("gemini", {
+          env = {
+            api_key = "cmd:security find-generic-password -a codecompanion -s Gemini_codecompanion -w"
+          }
+        })
+      end,
     },
     keys = {
       vim.cmd([[cab cc CodeCompanion]]),
