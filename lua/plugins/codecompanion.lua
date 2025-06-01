@@ -5,9 +5,13 @@ return {
     -- being setup in individual lua file
     -- { "MeanderingProgrammer/render-markdown.nvim", ft = { "markdown", "codecompanion" } },
     "nvim-treesitter/nvim-treesitter",
+    "j-hui/fidget.nvim"
   },
   enabled = true,
   config = true,
+  init = function()
+    require("plugins.codecompanion.fidget-spinner"):init()
+  end,
   opts = {
     extensions = {
         mcphub = {
@@ -46,7 +50,7 @@ return {
           },
           schema = {
             model = {
-              default = "gemma2:2b",
+              default = "qwen3:1.7b",
             }
           }
         })
@@ -58,7 +62,7 @@ return {
           },
           schema = {
             model = {
-              default = "gpt-4o-mini"
+              default = "gpt-4.1-mini"
             }
           }
         })
