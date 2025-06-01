@@ -9,6 +9,16 @@ return {
   enabled = true,
   config = true,
   opts = {
+    extensions = {
+        mcphub = {
+          callback = "mcphub.extensions.codecompanion",
+          opts = {
+            make_vars = true,
+            make_slash_commands = true,
+            show_result_in_chat = true
+          }
+        }
+    },
     display = {
       chat = {
         window = {
@@ -20,15 +30,6 @@ return {
     strategies = {
       chat = {
         adapter = 'openai',
-        tools = {
-          ["mcp"] = {
-            -- Prevent mcphub from loading before needed
-            callback = function()
-              return require("mcphub.extensions.codecompanion")
-            end,
-            description = "Call tools and resources from the MCP Servers"
-          }
-        },
         keymaps = {
           close = {
             modes = { n = "<C-x>", i = "<C-x>" },
