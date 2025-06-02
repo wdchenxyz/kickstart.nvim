@@ -61,7 +61,9 @@ vim.keymap.set("n", "<C-Left>", "<C-w><")
 vim.keymap.set("n", "<C-Right>", "<C-w>>")
 vim.keymap.set("n", "<C-Up>", "<C-w>+")
 vim.keymap.set("n", "<C-Down>", "<C-w>-")
-vim.keymap.set('n', '<leader>vr', ':vertical resize<CR>', { noremap = true })
+
+vim.cmd([[cab vr vertical resize]])
+vim.cmd([[cab sr resize]])
 
 -- mark before search
 vim.keymap.set("n", "/", "ms/")
@@ -76,8 +78,12 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnos
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
 vim.keymap.set('n', '<leader><Tab>', vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
+-- Quick notes
 vim.keymap.set('n', '<leader>t', function()
   vim.cmd('split')            -- Open horizontal split
   vim.cmd('resize 20')        -- Set height to 20 lines
   vim.cmd('enew')             -- Open new empty buffer
 end, { desc = 'Open temp split for typing' })
+
+-- Diffview
+vim.keymap.set("n", "<M-d>", "<cmd>DiffviewOpen<CR>")
