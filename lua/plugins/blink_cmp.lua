@@ -19,7 +19,7 @@ return {
 
             signature = { enabled = true },
             sources = {
-                default = { 'lsp', 'path', 'buffer', 'avante', 'codecompanion' },
+                default = { 'lsp', 'path', 'buffer', 'avante' },
                 -- cmdline = {}, -- Disable sources for command-line mode
                 providers = {
                     avante = {
