@@ -1,6 +1,7 @@
 return {
     {
         'milanglacier/minuet-ai.nvim',
+        enabled = false,
         config = function()
             require('minuet').setup {
                 virtualtext = {
@@ -20,13 +21,13 @@ return {
                     },
                 },
                 provider = 'openai_compatible',
-                n_completions = 1, -- recommend for local model for resource saving
+                n_completions = 2, -- recommend for local model for resource saving
                 -- I recommend beginning with a small context window size and incrementally
                 -- expanding it, depending on your local computing power. A context window
                 -- of 512, serves as an good starting point to estimate your computing
                 -- power. Once you have a reliable estimate of your local computing power,
                 -- you should adjust the context window to a larger value.
-                context_window = 10240,
+                context_window = 1024,
                 provider_options = {
                     openai_compatible = {
                         api_key = 'TERM',
