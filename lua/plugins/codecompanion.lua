@@ -7,7 +7,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     "j-hui/fidget.nvim"
   },
-  enabled = false,
+  enabled = true,
   config = true,
   init = function()
     require("plugins.codecompanion.fidget-spinner"):init()
@@ -62,7 +62,7 @@ return {
           },
           schema = {
             model = {
-              default = "gpt-4.1-mini"
+              default = "gpt-5-mini"
             }
           }
         })
@@ -87,7 +87,7 @@ return {
       vim.cmd([[cab cct CodeCompanionChat]]),
       vim.cmd([[cab cca CodeCompanionActions<cr>]]),
       vim.api.nvim_set_keymap("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true }),
-      --     vim.api.nvim_set_keymap("n", "<C-q>", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true }),
+      vim.api.nvim_set_keymap("n", "<C-q>", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true }),
       vim.keymap.set("v", "<leader>d", function() require("codecompanion").prompt("explain") end,
         { noremap = true, silent = true })
     },
