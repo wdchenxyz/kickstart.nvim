@@ -73,15 +73,16 @@ return {
         },
     },
     {
-      'nvim-treesitter/nvim-treesitter-context',
-      config = function()
-          vim.keymap.set("n", "gc", function()
-              require("treesitter-context").go_to_context()
-          end, { silent = true })
-      end,
-      opts = {
-        max_lines = 5,
-        multiline_threshold = 5
-      }
+        'nvim-treesitter/nvim-treesitter-context',
+        config = function(_, opts)
+            local context = require('treesitter-context')
+            context.setup(opts)
+            -- use gC to jump back to the parent scope without colliding with Comment.nvim's gc
+            vim.keymap.set('n', 'gC', context.go_to_context, { silent = true, desc = 'TS context: go to parent' })
+        end,
+        opts = {
+            max_lines = 5,            -- never render more than three context lines
+            multiline_threshold = 5,  -- collapse scopes that span more than three lines
+        },
     }
 }
