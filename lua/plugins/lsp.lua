@@ -51,6 +51,24 @@ return {
                     }
                 end,
                 ['jdtls'] = function () end,
+                ['ts_ls'] = function()
+                    local lspconfig = require("lspconfig")
+                    local format_settings = {
+                        format = {
+                            indentSize = 2,
+                            convertTabsToSpaces = true,
+                            tabSize = 2,
+                        }
+                    }
+
+                    lspconfig.ts_ls.setup {
+                        capabilities = capabilities,
+                        settings = {
+                            javascript = format_settings,
+                            typescript = format_settings,
+                        }
+                    }
+                end,
             }
         })
     end
